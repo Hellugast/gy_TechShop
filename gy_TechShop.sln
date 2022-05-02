@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.Web", "gy_TechShop.Web\gy_TechShop.Web.csproj", "{E63711BB-C53F-4EF0-BA61-50B04FCB5E62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gy_TechShop.Web", "gy_TechShop.Web\gy_TechShop.Web.csproj", "{E63711BB-C53F-4EF0-BA61-50B04FCB5E62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.Business", "gy_TechShop.Business\gy_TechShop.Business.csproj", "{E3D3881E-1600-48F5-B9CC-CE74D5AB6A75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gy_TechShop.Business", "gy_TechShop.Business\gy_TechShop.Business.csproj", "{E3D3881E-1600-48F5-B9CC-CE74D5AB6A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.Core", "gy_TechShop.Core\gy_TechShop.Core.csproj", "{954765A0-6C62-4EA6-9540-C88DBF389018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gy_TechShop.Core", "gy_TechShop.Core\gy_TechShop.Core.csproj", "{954765A0-6C62-4EA6-9540-C88DBF389018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.Entities", "gy_TechShop.Entities\gy_TechShop.Entities.csproj", "{256E66F9-2167-450F-A500-9988929E9527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gy_TechShop.Entities", "gy_TechShop.Entities\gy_TechShop.Entities.csproj", "{256E66F9-2167-450F-A500-9988929E9527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.DataAccess", "gy_TechShop.DataAccess\gy_TechShop.DataAccess.csproj", "{8C028E68-5047-4833-A465-F1B42C883B5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gy_TechShop.DataAccess", "gy_TechShop.DataAccess\gy_TechShop.DataAccess.csproj", "{8C028E68-5047-4833-A465-F1B42C883B5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gy_TechShop.WebAPI", "gy_TechShop.WebAPI\gy_TechShop.WebAPI.csproj", "{4134C20B-C457-4E76-B5A1-83851D98140C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{8C028E68-5047-4833-A465-F1B42C883B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C028E68-5047-4833-A465-F1B42C883B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C028E68-5047-4833-A465-F1B42C883B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4134C20B-C457-4E76-B5A1-83851D98140C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4134C20B-C457-4E76-B5A1-83851D98140C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4134C20B-C457-4E76-B5A1-83851D98140C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4134C20B-C457-4E76-B5A1-83851D98140C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
