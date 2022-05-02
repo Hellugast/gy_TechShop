@@ -6,7 +6,7 @@ namespace gy_TechShop.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
 
@@ -16,9 +16,9 @@ namespace gy_TechShop.WebAPI.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult Login(UserLoginDto userForLoginDto)
+        public ActionResult Login(UserLoginDto userLoginDto)
         {
-            var userToLogin = _authService.Login(userForLoginDto);
+            var userToLogin = _authService.Login(userLoginDto);
             if (!userToLogin.Success) return BadRequest(userToLogin.Message);
 
             var result = _authService.CreateAccessToken(userToLogin.Data);
@@ -28,12 +28,12 @@ namespace gy_TechShop.WebAPI.Controllers
         }
 
         [HttpPost("register")]
-        public ActionResult Register(UserRegisterDto userForRegisterDto)
+        public ActionResult Register(UserRegisterDto userRegisterDto)
         {
-            var userExists = _authService.UserExists(userForRegisterDto.Email);
+            var userExists = _authService.UserExists(userRegisterDto.Email);
             if (!userExists.Success) return BadRequest(userExists.Message);
 
-            var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
+            var registerResult = _authService.Register(userRegisterDto, userRegisterDto.Password);
             var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success) return Ok(result);
 
