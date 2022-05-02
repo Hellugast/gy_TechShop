@@ -24,7 +24,8 @@ namespace gy_TechShop.DataAccess.Concrete.EntityFramework
                                  ProductId = p.ProductId,
                                  ProductName = p.ProductName,
                                  CategoryName = c.CategoryName,
-                                 UnitsInStock = p.UnitsInStock
+                                 UnitsInStock = p.UnitsInStock,
+                                 Picture = p.Picture
                              };
                 return result.ToList();
             }

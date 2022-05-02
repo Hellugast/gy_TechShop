@@ -13,5 +13,6 @@ namespace gy_TechShop.Entities.DTOs
         public string ProductName { get; set; }
         public string CategoryName { get; set; }
         public short UnitsInStock { get; set; }
+        public string Picture { get; set; }
     }
 }
