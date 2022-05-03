@@ -3,7 +3,7 @@ using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using gy_TechShop.Business.Abstract;
 using gy_TechShop.Business.Concrete;
-using gy_TechShop.Core.Utilities.Interceptors;
+using gy_TechShop.Core.Utilities.MethodInterceptors;
 using gy_TechShop.Core.Utilities.Security.JWT;
 using gy_TechShop.DataAccess.Abstract;
 using gy_TechShop.DataAccess.Concrete.EntityFramework;
@@ -21,6 +21,8 @@ namespace gy_TechShop.Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<BrandManager>().As<IBrandService>().SingleInstance();
+            builder.RegisterType<EfBrandDal>().As<IBrandDal>().SingleInstance();
             builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
             builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
             builder.RegisterType<CategoryManager>().As<ICategoryService>().SingleInstance();

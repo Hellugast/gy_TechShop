@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gy_TechShop.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +23,7 @@ namespace gy_TechShop.Business.Constants
         public static string PasswordError = "Hatalı parola.";
         public static string UserAlreadyExists = "Kullanıcı zaten bulunmaktadır.";
         public static string AccessTokenCreated = "Yetkilendime anahtarı oluşturuldu.";
+        public static string BrandAdded = "Marka eklendi.";
+        public static string BrandNotFound = "Marka bulunamadı.";
     }
 }

@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 
 namespace gy_TechShop.Business.Concrete
 {
+    
     public class ProductManager : IProductService
     {
         private readonly ICategoryService _categoryService;
@@ -45,6 +46,7 @@ namespace gy_TechShop.Business.Concrete
         }
 
         [CacheAspect]
+        [SecuredOperation("admin")]
         public IDataResult<List<Product>> GetAll()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);

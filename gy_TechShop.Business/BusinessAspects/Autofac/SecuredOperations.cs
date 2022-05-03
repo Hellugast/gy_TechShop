@@ -1,8 +1,8 @@
 ﻿using Castle.DynamicProxy;
 using gy_TechShop.Business.Constants;
 using gy_TechShop.Core.Extensions;
-using gy_TechShop.Core.Utilities.Interceptors;
 using gy_TechShop.Core.Utilities.IoC;
+using gy_TechShop.Core.Utilities.MethodInterceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;

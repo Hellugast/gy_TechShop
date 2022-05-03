@@ -1,5 +1,5 @@
 ﻿using Castle.DynamicProxy;
-using gy_TechShop.Core.Utilities.Interceptors;
+using gy_TechShop.Core.Utilities.MethodInterceptors;
 using System;
 using System.Collections.Generic;
 using System.Linq;

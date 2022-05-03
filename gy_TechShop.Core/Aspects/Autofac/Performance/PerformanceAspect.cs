@@ -1,6 +1,6 @@
 ﻿using Castle.DynamicProxy;
-using gy_TechShop.Core.Utilities.Interceptors;
 using gy_TechShop.Core.Utilities.IoC;
+using gy_TechShop.Core.Utilities.MethodInterceptors;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

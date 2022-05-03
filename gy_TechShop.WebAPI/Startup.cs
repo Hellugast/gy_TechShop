@@ -35,9 +35,38 @@ namespace gy_TechShop.WebAPI
         {
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "gy_TechShop.WebAPI", Version = "v1" });
+            //});
+            services.AddSwaggerGen(opt =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "gy_TechShop.WebAPI", Version = "v1" });
+                opt.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "gy_TechShop.WebAPI", Description = "v1", Version = "v1" });
+
+                opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. Just insert the JWT token and click 'Authorize' ",
+                });
+
+                opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    {
+                        {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] {}
+                        }
+                    });
             });
 
             services.AddCors();

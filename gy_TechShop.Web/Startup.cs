@@ -33,6 +33,7 @@ namespace gy_TechShop.Web
                     .AddFluentValidation(option => option.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
 
             services.AddSession();
+            services.AddHttpContextAccessor();
             services.AddDependencyResolvers(new ICoreModule[]
             {
                 new CoreModule()
