@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace gy_TechShop.Business.ValidationRules.FluentValidation
 {
-    public class BrandValidator:AbstractValidator<BrandForAddDto>
+    public class BrandValidator:AbstractValidator<BrandAddDto>
     {
         public BrandValidator()
         {
