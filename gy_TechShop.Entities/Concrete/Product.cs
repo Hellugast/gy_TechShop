@@ -15,5 +15,6 @@ namespace gy_TechShop.Entities.Concrete
         public short UnitsInStock { get; set; }
         public decimal UnitPrice { get; set; }
         public string Picture { get; set; }
+        public string Description { get; set; }
     }
 }
