@@ -13,10 +13,12 @@ namespace gy_TechShop.Business.Concrete
     public class UserManager : IUserService
     {
         private readonly IUserDal _userDal;
+        private readonly IUserOperationClaimService _userOperationClaimService;
 
-        public UserManager(IUserDal userDal)
+        public UserManager(IUserDal userDal, IUserOperationClaimService userOperationClaimService)
         {
             _userDal = userDal;
+            _userOperationClaimService = userOperationClaimService;
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)
@@ -28,6 +30,7 @@ namespace gy_TechShop.Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
+            _userOperationClaimService.AddClaims(user.Id, 1);
             return new SuccessResult();
         }
 

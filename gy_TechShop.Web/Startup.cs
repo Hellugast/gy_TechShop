@@ -3,6 +3,7 @@ using gy_TechShop.Core.DependencyResolver;
 using gy_TechShop.Core.Extensions;
 using gy_TechShop.Core.Utilities.IoC;
 using gy_TechShop.Web.Helpers;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,6 +40,12 @@ namespace gy_TechShop.Web
                 new CoreModule()
             });
             services.AddScoped<ICartSessionHelper, CartSessionHelper>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+             .AddCookie(options =>
+             {
+                 options.LoginPath = "/Login/Index/";
+             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
