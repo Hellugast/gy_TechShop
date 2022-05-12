@@ -68,6 +68,8 @@ namespace gy_TechShop.Web
 
             app.UseSession();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
