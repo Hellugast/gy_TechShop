@@ -46,7 +46,7 @@ namespace gy_TechShop.Business.Concrete
         }
 
         [CacheAspect]
-        //[SecuredOperation("user")]
+        [SecuredOperation("user")]
         public IDataResult<List<Product>> GetAll()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
