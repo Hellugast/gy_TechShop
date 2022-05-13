@@ -22,5 +22,7 @@ namespace gy_TechShop.Business.Abstract
         IDataResult<Product> GetById(int productId);
 
         IResult Add(Product product);
+
+        IResult Delete(int productId);
     }
 }

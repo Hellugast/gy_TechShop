@@ -49,5 +49,14 @@ namespace gy_TechShop.WebAPI.Controllers
 
             return BadRequest(result);
         }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(int productId)
+        {
+            var result = _productService.Delete(productId);
+            if (result.Success) return Ok(result);
+
+            return BadRequest(result);
+        }
     }
 }

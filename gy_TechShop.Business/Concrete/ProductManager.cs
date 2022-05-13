@@ -94,5 +94,15 @@ namespace gy_TechShop.Business.Concrete
             if (result.Data.Count > 15) return new ErrorResult(Messages.CategoryLimitExceded);
             return new SuccessResult();
         }
+
+        [SecuredOperation("product.add,admin")]
+        [CacheRemoveAspect("IProductService.Get")]
+        public IResult Delete(int productId)
+        {
+            var product = _productDal.Get(p => p.ProductId == productId);
+            if (product == null) { return new ErrorResult(Messages.ProductNotFound); }
+            _productDal.Delete(product);
+            return new SuccessResult(Messages.ProductDeleted);
+        }
     }
 }

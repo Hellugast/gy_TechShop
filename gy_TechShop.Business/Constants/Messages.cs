@@ -25,5 +25,7 @@ namespace gy_TechShop.Business.Constants
         public static string AccessTokenCreated = "Yetkilendime anahtarı oluşturuldu.";
         public static string BrandAdded = "Marka eklendi.";
         public static string BrandNotFound = "Marka bulunamadı.";
+        public static string ProductNotFound = "Ürün bulunamadı.";
+        public static string ProductDeleted = "Ürün silindi.";
     }
 }
