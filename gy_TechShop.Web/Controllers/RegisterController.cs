@@ -20,9 +20,16 @@ namespace gy_TechShop.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(UserRegisterDto UserRegisterDto)
+        public IActionResult Register(UserRegisterDto userRegisterDto)
         {
-            var result = _authService.Register(UserRegisterDto, UserRegisterDto.Password);
+            var userExists = _authService.UserExists(userRegisterDto.Email);
+            if (!userExists.Success) 
+            {
+                ViewBag.Message = userExists.Message;
+                return View("Index");
+            };
+
+            var result = _authService.Register(userRegisterDto, userRegisterDto.Password);
             if (result.Success)
             {
                 ViewBag.Message = result.Message;

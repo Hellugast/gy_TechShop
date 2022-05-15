@@ -1,5 +1,6 @@
 ﻿using gy_TechShop.Business.Abstract;
 using gy_TechShop.Entities.Concrete;
+using gy_TechShop.Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace gy_TechShop.WebAPI.Controllers
@@ -42,7 +43,7 @@ namespace gy_TechShop.WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Product product)
+        public IActionResult Add(ProductAddDto product)
         {
             var result = _productService.Add(product);
             if (result.Success) return Ok(result);

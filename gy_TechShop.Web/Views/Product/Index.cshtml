@@ -11,6 +11,7 @@
         <div class="card-body">
             <h5 class="card-title">@product.ProductName</h5>
             <p class="card-text">@product.Description</p>
+            <p class="card-text">@product.UnitPrice</p>
             <a class="btn btn-sm btn-success" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.ProductId">Sepete ekle</a>
         </div>
     }

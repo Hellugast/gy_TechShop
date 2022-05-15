@@ -32,21 +32,31 @@ namespace gy_TechShop.Business.Concrete
         [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         [CacheRemoveAspect("IProductService.Get")]
-        public IResult Add(Product product)
+        public IResult Add(ProductAddDto product)
         {
             var result = BusinessRules.Run(
                 CheckIfProductCountOfCategoryCorrect(product.CategoryId),
-                CheckIfProductNameExists(product.ProductName),
-                CheckIfCategoryLimitExceded());
+                CheckIfProductNameExists(product.ProductName));
+                //CheckIfCategoryLimitExceded());
             if (result != null) return result;
 
-            _productDal.Add(product);
+            var addToProduct = new Product
+            {
+                CategoryId = product.CategoryId,
+                ProductName = product.ProductName,
+                UnitsInStock = product.UnitsInStock,
+                UnitPrice = product.UnitPrice,
+                Picture = product.Picture,
+                Description = product.Description
+            };
+
+            _productDal.Add(addToProduct);
 
             return new SuccessResult(Messages.ProductAdded);
         }
 
         [CacheAspect]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IDataResult<List<Product>> GetAll()
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(), Messages.ProductsListed);
