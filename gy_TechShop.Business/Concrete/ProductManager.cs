@@ -114,5 +114,22 @@ namespace gy_TechShop.Business.Concrete
             _productDal.Delete(product);
             return new SuccessResult(Messages.ProductDeleted);
         }
+
+        [SecuredOperation("product.add,admin")]
+        [CacheRemoveAspect("IProductService.Get")]
+        public IResult Update(Product product)
+        {
+            var productUpdated = _productDal.Get(p => p.ProductId == product.ProductId);
+            if (product == null) { return new ErrorResult(Messages.ProductNotFound); }
+            productUpdated.CategoryId = product.CategoryId;
+            productUpdated.ProductName = product.ProductName;
+            productUpdated.UnitsInStock = product.UnitsInStock;
+            productUpdated.UnitPrice = product.UnitPrice;
+            productUpdated.Picture = product.Picture == null ? product.Picture : productUpdated.Picture;
+            productUpdated.Description = product.Description;
+            _productDal.Update(productUpdated);
+            return new SuccessResult(Messages.ProductUpdated);
+        }
+
     }
 }

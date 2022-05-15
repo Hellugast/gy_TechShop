@@ -27,5 +27,6 @@ namespace gy_TechShop.Business.Constants
         public static string BrandNotFound = "Marka bulunamadı.";
         public static string ProductNotFound = "Ürün bulunamadı.";
         public static string ProductDeleted = "Ürün silindi.";
+        public static string ProductUpdated = "Ürün güncellendi.";
     }
 }
