@@ -25,6 +25,8 @@ namespace gy_TechShop.Business.Abstract
 
         IResult Delete(int productId);
 
+        IResult SoftDelete(int productId);
+
         IResult Update(Product product);
     }
 }

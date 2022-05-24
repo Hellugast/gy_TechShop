@@ -21,11 +21,13 @@ namespace gy_TechShop.Business.BusinessAspects.Autofac
 
         public SecuredOperation(string roles)
         {
+            /*
             using (var context = new gyTechShopDbContext())
             {
                 var claim = context.OperationClaims.FirstOrDefault(i => i.Name == roles);
                 var user = context.UserOperationClaims.FirstOrDefault(i => i.OperationClaimId == claim.Id);
             }
+            */
             _roles = roles.Split(',');
             _httpContextAccessor = ServiceTool.ServiceProvider.GetService<IHttpContextAccessor>();
         }

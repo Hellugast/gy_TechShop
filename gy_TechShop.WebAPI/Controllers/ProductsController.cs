@@ -60,6 +60,15 @@ namespace gy_TechShop.WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpPost("softdelete")]
+        public IActionResult SoftDelete(int productId)
+        {
+            var result = _productService.SoftDelete(productId);
+            if (result.Success) return Ok(result);
+
+            return BadRequest(result);
+        }
+
         [HttpPost("update")]
         public IActionResult Update(Product product)
         {

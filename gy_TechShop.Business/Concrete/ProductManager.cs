@@ -47,7 +47,8 @@ namespace gy_TechShop.Business.Concrete
                 UnitsInStock = product.UnitsInStock,
                 UnitPrice = product.UnitPrice,
                 Picture = product.Picture,
-                Description = product.Description
+                Description = product.Description,
+                IsActive = true
             };
 
             _productDal.Add(addToProduct);
@@ -117,10 +118,21 @@ namespace gy_TechShop.Business.Concrete
 
         [SecuredOperation("product.add,admin")]
         [CacheRemoveAspect("IProductService.Get")]
+        public IResult SoftDelete(int productId)
+        {
+            var productSoftDeleted = _productDal.Get(p => p.ProductId == productId);
+            if (productSoftDeleted == null) { return new ErrorResult(Messages.ProductNotFound); }
+            productSoftDeleted.IsActive = false;
+            _productDal.Update(productSoftDeleted);
+            return new SuccessResult(Messages.ProductDeleted);
+        }
+
+        [SecuredOperation("product.add,admin")]
+        [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(Product product)
         {
             var productUpdated = _productDal.Get(p => p.ProductId == product.ProductId);
-            if (product == null) { return new ErrorResult(Messages.ProductNotFound); }
+            if (productUpdated == null) { return new ErrorResult(Messages.ProductNotFound); }
             productUpdated.CategoryId = product.CategoryId;
             productUpdated.ProductName = product.ProductName;
             productUpdated.UnitsInStock = product.UnitsInStock;
